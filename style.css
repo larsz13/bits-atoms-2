@@ -1,7 +1,4 @@
-/** 
- * A very basic CSS reset:
- * More about CSS resets: https://meyerweb.com/eric/tools/css/reset/
- */
+/* FONT INTEGRATION ---------------------------- */
 
  @font-face {
   font-family:'Favorit';
@@ -23,51 +20,89 @@
   padding: 0;
 }
 
-/** 
- * Card sizing and positioning.
- * Don't mess with this!
- */
+/* PRE-GIVEN .CARD VALUES ---------------------------- */
+
 .card {
   width: 300px;
   height: 540px;
   margin: 40px auto 0 auto;
+}
+
+/* OVERALL CARD STYLES ---------------------------- */
+
+.card {
   font-family:'Favorit',sans-serif;
   box-shadow: 0px 8px 24px -6px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   padding:0;
+  color: #fff;
+  padding: 0px;
+
+  /* ANIMATE */
+  animation-duration: 1s;
+  animation-name: ani-one;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
 }
 
-.button{
-  /*position:absolute;*/
-  padding:4px 2px 0px 2px;
-  background-color:#FFD600;
-  border-radius: 100px;
-  left:960px;
-  top:340px;
-  transition-duration: 0.5s;
+.card-top, .card-bottom{
+  padding:26px;
+
+  /* ANIMATE */
+  animation-duration: 3s;
+  animation-delay: 0s;
+  animation-fill-mode: backwards;
 }
 
-.button:hover{
-  transition-duration: 0.5s;
-  box-shadow: 0px 0px 30px rgba(255, 214, 0, 0.9);
+/* DETAILS: CARD-TOP ---------------------------- */
+
+.card-top{
+  background-image:url('img/img.jpg');
+  height:66%;
+  background-repeat: no-repeat;
+  background-size: 320px 380px;
+  border-radius: 20px 20px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  /* ANIMATE */
+  animation-name: ani-three;
 }
 
-.button>p{
-  color:black;
-  font-family: "Anicons Regular", sans-serif;
-  text-align: center;
-  font-size:30px;
-  line-height: 40px;
-  width:40px;
-  height:40px;
-  font-variation-settings: "TIME" 1;
-  transition: font-variation-settings 0.4s ease;
+.lineup, .event-image{
+  /* ANIMATE */
+  animation-duration: 1s;
+  animation-name: ani-two;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
 }
 
-.button>p:hover{
-  font-variation-settings: "TIME" 100;
-  transition: font-variation-settings 0.4s ease;
-  cursor:pointer;
+h1.lineup{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.event-image{
+  height:100%;
+  width:auto;
+}
+
+/* DETAILS: CARD-BOTTOM ---------------------------- */
+
+.card-bottom {
+  background-color:black;
+  height:34%;
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* ANIMATE */
+  animation-name: ani-four;
 }
 
 .card-bottom>div{
@@ -78,83 +113,13 @@
   align-content: flex-end;
 }
 
-
-h1.lineup{
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-h1.lineup:last-child{
-  line-height:24px;
-}
-
-.card-top, .card-bottom{
-  padding:26px;
-}
-
-.event-image{
-  height:100%;
-  width:auto;
-}
-
-.lineup, .event-image{
-  animation-duration: 1s;
-  animation-name: ani-two;
-  animation-delay: 1s;
-  animation-fill-mode: backwards;
-}
-
-
-
-
-
-.card-top{
-  background-image:url('img/img.jpg');
-  height:66%;
-  background-repeat: no-repeat;
-  background-size: 320px 380px;
-  
-  border-radius: 20px 20px 0px 0px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.card-bottom {
-  background-color:black;
-  height:34%;
-  border-radius: 0px 0px 20px 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /*align-items: flex-start;*/
-}
-
-.card-bottom,.card-top{
-  animation-duration: 3s;
-  animation-delay: 0s;
-  animation-fill-mode: backwards;
-}
-
-.card-top{
-  animation-name: ani-three;
-}
-
-.card-bottom{
-  animation-name: ani-four;
-}
-
 .description,.card-bottom>div {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   
+  /* ANIMATE */
   animation-duration: 1s;
   animation-name: ani-five;
   animation-delay: 2s;
@@ -173,43 +138,67 @@ h1.lineup:last-child{
   align-items: flex-end;
 }
 
-
-/** 
- * Just some styling to make the card visible.
- * Feel free to change this!
- */
-
-.card {
-  color: #fff;
-  padding: 0px;
-  animation-duration: 1s;
-  animation-name: ani-one;
-  animation-delay: 0.3s;
-  animation-fill-mode: backwards;
+.button{
+  padding:4px 2px 0px 2px;
+  background-color:#FFD600;
+  border-radius: 100px;
+  left:960px;
+  top:340px;
+  transition-duration: 0.5s;
 }
 
+.button:hover{
+  cursor:pointer;
+  transition-duration: 0.5s;
+  box-shadow: 0px 0px 30px rgba(255, 214, 0, 0.9);
+}
+
+.button>p{
+  color:black;
+  font-family: "Anicons Regular", sans-serif;
+  text-align: center;
+  font-size:30px;
+  line-height: 40px;
+  width:40px;
+  height:40px;
+  font-variation-settings: "TIME" 1;
+  transition: font-variation-settings 0.5s ease;
+}
+
+.button>p:hover{
+  font-variation-settings: "TIME" 100;
+  transition: font-variation-settings 0.5s ease;
+}
+
+/* KEYFRAMES ANIMATION ---------------------------- */
+
+/* MAKING CARD VISIBLE */
 @keyframes ani-one {
   0% { opacity: 0; height:500px;}
   100% { opacity: 1; height:540px;}
 }
 
+/* MAKING TOP ELEMENTS VISIBLE */
 @keyframes ani-two {
   0% { opacity: 0; padding:30px 0px;}
   100% { opacity: 1; padding:0px;}
 }
 
+/* RESIZE CARD-TOP */
 @keyframes ani-three {
   0% { height:70%;}
   66% { height:70%;}
   100% { height:66%;}
 }
 
+/* RESIZE CARD-BOTTOM */
 @keyframes ani-four {
   0% { height:30%;}
   66% { height:30%;}
   100% { height:34%;}
 }
 
+/* MAKING BOTTOM ELEMENTS VISIBLE */
 @keyframes ani-five {
   0% { opacity: 0;}
   100% { opacity: 1;}
