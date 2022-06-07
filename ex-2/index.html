@@ -7,17 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Card</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <!-- Keep this div with the class card! -->
   <div class="card">
+    <div class="overlay">
+      <div class="players">
+        Single player
+        <p>
+          Play against computer
+        </p>
+      </div>
+      <div class="divider">
+        <div class="ornament"></div>
+        <p>tic tac toe</p>
+        <div class="ornament"></div>
+      </div>
+      <div class="players">
+        Multiplayer
+        <p>
+          Play against a friend
+        </p>
+      </div>
+    </div>
     <!-- Write your markup in here! Feel free to delete the title and the text! -->
-    <h1>Card</h1>
-    <p>Everything here is your canvas...</p>
+    <div class="game">
+      <p>orange's turn</p>
+      <div class="playfield">
+        <div class="line">
+          <div class="" data-js="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+        <div class="line">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+        <div class="line">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+      </div>
+      </div>
+      <button>
+        give up
+      </button>
+    </div>
+
+
+
   </div>
 
-  <script src="script.js"></script>
+  
 </body>
 
 </html>

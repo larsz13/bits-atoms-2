@@ -8,6 +8,20 @@
   padding: 0;
 }
 
+@font-face {
+  font-family:'Favorit';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Favorit'), url('fonts/favorit-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family:'Favorit';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Favorit'), url('fonts/favorit-medium.otf') format('opentype');
+}
+
 /** 
  * Card sizing and positioning.
  * Don't mess with this!
@@ -24,8 +38,115 @@
  */
 
 .card {
-  background-color: blue;
+  background-color: black;
   color: #fff;
   border-radius: 5px;
-  padding: 15px;
+
+  font-family:'Favorit',sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 54px;
+}
+
+div.overlay{
+  display: none;
+}
+
+.game{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;;
+}
+
+.playfield{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px;
+}
+
+.line{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 6px;
+}
+
+.box{
+  width:80px;
+  height:80px;
+  background-color:grey;
+}
+
+.box:hover{
+  background-color: blue;
+}
+
+button{
+  border:1px solid #3E3E3E;
+  color:white;
+  background:none;
+  padding:10px;
+}
+
+button:hover{
+  cursor:pointer;
+  border-color:white;
+}
+
+.overlay{
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+
+.divider{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width:100%;
+}
+
+.ornament{
+  height:0px;
+  width:100%;
+  border: 1px solid white;
+}
+
+p{
+  width:100%;
+  text-align: center;
+  font-size:14px;
+  font-weight: 400;
+}
+
+.players{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  font-size: 24px;
+  font-weight:500;
+}
+
+.players:hover{
+  background-color:blue;
+
+}
+
+.blue{
+  background-color:blue;
 }
