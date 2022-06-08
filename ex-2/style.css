@@ -84,10 +84,10 @@ div.overlay{
   height:80px;
   background-color:grey;
 }
-
+/*
 .box:hover{
   background-color: blue;
-}
+}*/
 
 button{
   border:1px solid #3E3E3E;
@@ -149,4 +149,12 @@ p{
 
 .blue{
   background-color:blue;
+}
+
+.black{
+  background-color:#3E3E3E;
+}
+
+.orange{
+  background-color:orange;
 }
