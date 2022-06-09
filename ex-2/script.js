@@ -1,16 +1,17 @@
 // SETTING VARIABLES
 var field = [];
+var vals = [];
 const restart = document.querySelector('[data-js="restart"]');
 const start = document.querySelector('[data-js="start"]');
 const overlay = document.querySelector('[data-js="overlay"]');
 const game = document.querySelector('[data-js="game"]');
-var vals = [0,0,0,0,0,0,0,0,0];
-var turn = "orange";
 const gameText = document.getElementById("turn")
+var turn = "blue";
 var player1 = "blue";
 var player2 = "orange";
 const col1 = "#5568fa";
 for(var x=0;x<9;x++){
+    vals[x] = 0;
     field[x] = document.querySelector('[data-js="'+x+'"]');
 }
 
@@ -27,10 +28,10 @@ function nameSave(){
     player1 = document.getElementById("player1").value;
     player2 = document.getElementById("player2").value;
     if(player1 == ""){
-        player1 = "orange";
+        player1 = "blue";
     }
     if(player2 == ""){
-        player2 = "blue";
+        player2 = "orange";
     }
     overlay.classList.toggle("hide");
     game.classList.toggle("hide");

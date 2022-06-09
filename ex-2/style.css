@@ -52,14 +52,6 @@
   gap: 54px;
 }
 
-.hide{
-  display:none;
-}
-/*
-div.game{
-  display: none;
-}*/
-
 .game{
   display: flex;
   flex-direction: column;
@@ -165,6 +157,36 @@ p{
   background-color:orange;
 }
 
+.font-blue, .font-blue::placeholder{
+  color:#5568fa;
+}
+
+.font-orange, .font-orange::placeholder{
+  color:orange;
+}
+
+::placeholder{
+  opacity:0.3;
+}
+
+/* FOR CHANGING FROM NAME TO GAME SCREEN */
 .hide{
   display:none;
+}
+
+.overlay>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input{
+  border:none;
+  background:none;
+  color:white;
+  padding:6px;
+  text-align: center;
+  font-size: 32px;
+  font-family:'Favorit',sans-serif;
+  width:90%;
 }
