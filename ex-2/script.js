@@ -9,6 +9,10 @@ const gameText = document.getElementById("turn")
 var turn = "blue";
 var player1 = "blue";
 var player2 = "orange";
+var counterPlayer1 = 0;
+var counterPlayer2 = 0;
+const counter1 = document.querySelector('[data-js="counter1"]');
+const counter2 = document.querySelector('[data-js="counter2"]');
 const col1 = "#5568fa";
 for(var x=0;x<9;x++){
     vals[x] = 0;
@@ -60,6 +64,7 @@ function initialiseGame(){
 
 // AFTER CLICKING IN A FIELD
 function updateVal(nr){
+    console.log(counterPlayer1);
     if(turn=="orange" && vals[nr.target.dataset.js]==0){
         vals[nr.target.dataset.js] = vals[nr.target.dataset.js]-1;
         field[nr.target.dataset.js].classList.toggle("orange");
@@ -91,6 +96,8 @@ function winCheck(){
         gameEnded();
         gameText.innerHTML = player2+" wins!";
         gameText.style.color = "orange";
+        counterPlayer2 = counterPlayer2 + 1;
+        counter2.innerHTML = counterPlayer2;
 
     }else if(
         vals[0]+vals[1]+vals[2]==3 ||
@@ -105,6 +112,8 @@ function winCheck(){
         gameEnded();
         gameText.innerHTML = player1+" wins!";
         gameText.style.color = col1;
+        counterPlayer1 = counterPlayer1 + 1;
+        counter1.innerHTML = counterPlayer1;
     }else if(   // LOOKING FOR A TIE
                 vals[0]!=0 &&
                 vals[1]!=0 &&

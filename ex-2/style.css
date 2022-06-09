@@ -90,6 +90,7 @@ button{
   color:white;
   background:none;
   padding:10px;
+  font-size: 16px;;
 }
 
 button:hover{
@@ -189,4 +190,8 @@ input{
   font-size: 32px;
   font-family:'Favorit',sans-serif;
   width:90%;
+}
+
+.counter{
+  font-size:24px;
 }
