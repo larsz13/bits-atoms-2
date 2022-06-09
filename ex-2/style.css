@@ -65,7 +65,7 @@ div.overlay{
 
 .playfield{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 6px;
@@ -73,7 +73,7 @@ div.overlay{
 
 .line{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   padding: 0px;
   gap: 6px;
