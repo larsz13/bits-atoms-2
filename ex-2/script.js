@@ -1,50 +1,56 @@
+// SETTING VARIABLES
 var field = [];
 const restart = document.querySelector('[data-js="restart"]');
 var vals = [0,0,0,0,0,0,0,0,0];
 var turn = "orange";
 const gameText = document.getElementById("turn")
-var player1 = "sven";
-var player2 = "mike";
-
-
+var player1 = "blue";
+var player2 = "orange";
+const col1 = "#5568fa";
 for(var x=0;x<9;x++){
     field[x] = document.querySelector('[data-js="'+x+'"]');
 }
+
+// FIRST INITIALSIE OF GAME
 initialiseGame();
+restart.addEventListener('click',initialiseGame);
 
-
+// ON FIRST INITIALISE AND ON RESTARTING
 function initialiseGame(){
+    if(turn=="orange"){
+        gameText.innerHTML = player2+"'s turn";
+        gameText.style.color = "orange";
+    }else if(turn="blue"){
+        gameText.innerHTML = player1+"'s turn";
+        gameText.style.color = col1;
+    }
     for(var x=0;x<9;x++){
         field[x].addEventListener('click', updateVal);
         if(vals[x]==-1){
             field[x].classList.toggle("orange");
-            console.log("new_blue");
         }else if(vals[x]==1){
             field[x].classList.toggle("blue");
-            console.log("new_orange");
         }
         vals[x] = 0;
     }
 }
 
-restart.addEventListener('click',initialiseGame);
-
+// AFTER CLICKING IN A FIELD
 function updateVal(nr){
-    console.log(nr.target.dataset.js);
-
     if(turn=="orange" && vals[nr.target.dataset.js]==0){
-        //vals[nr] =  vals[nr] - 1;
         vals[nr.target.dataset.js] = vals[nr.target.dataset.js]-1;
         field[nr.target.dataset.js].classList.toggle("orange");
         gameText.innerHTML = player1+"'s turn";
+        gameText.style.color = col1;
         turn = "blue";
     }else if(turn=="blue" && vals[nr.target.dataset.js]==0){
-        //vals[nr] = vals[nr] + 1;
         vals[nr.target.dataset.js] = vals[nr.target.dataset.js]+1;
         field[nr.target.dataset.js].classList.toggle("blue");
         gameText.innerHTML = player2+"'s turn";
+        gameText.style.color = "orange";
         turn = "orange";
     }
+    // CHECK IF SOMEONE ALREADY WON (OR TIE)
     winCheck();
 };
 
@@ -59,10 +65,9 @@ function winCheck(){
         vals[0]+vals[4]+vals[8]==-3 ||
         vals[2]+vals[4]+vals[6]==-3
         ){
-        for(var x=0;x<9;x++){
-            field[x].removeEventListener('click', updateVal);
-        }
+        gameEnded();
         gameText.innerHTML = player2+" wins!";
+        gameText.style.color = "orange";
 
     }else if(
         vals[0]+vals[1]+vals[2]==3 ||
@@ -74,12 +79,11 @@ function winCheck(){
         vals[0]+vals[4]+vals[8]==3 ||
         vals[2]+vals[4]+vals[6]==3
     ){
-        console.log("BLUE WIN");
-        for(var x=0;x<9;x++){
-            field[x].removeEventListener('click', updateVal);
-        }
+        gameEnded();
         gameText.innerHTML = player1+" wins!";
-    }else if(   vals[0]!=0 &&
+        gameText.style.color = col1;
+    }else if(   // LOOKING FOR A TIE
+                vals[0]!=0 &&
                 vals[1]!=0 &&
                 vals[2]!=0 &&
                 vals[3]!=0 &&
@@ -89,9 +93,15 @@ function winCheck(){
                 vals[7]!=0 &&
                 vals[8]!=0
         ){
-            for(var x=0;x<9;x++){
-                field[x].removeEventListener('click', updateVal);
-            }
+            gameEnded();
             gameText.innerHTML = "it's a tie!";
+            gameText.style.color = "white";
         }
+}
+
+// REMOVING THE EVENTLISTENER, SO NOONE COULD PLAY ONE BEFORE PRESSING 'RESTART'
+function gameEnded(){
+    for(var x=0;x<9;x++){
+        field[x].removeEventListener('click', updateVal);
+    }
 }
