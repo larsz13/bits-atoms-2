@@ -13,27 +13,19 @@
 <body>
   <!-- Keep this div with the class card! -->
   <div class="card">
-    <div class="overlay">
-      <div class="players">
-        Single player
-        <p>
-          Play against computer
-        </p>
+    <div class="overlay" data-js="overlay">
+      <div>
+        <p>Player 1</p>
+        <input type="text" id="player1" name="player1" placeholder="Add name...">
       </div>
-      <div class="divider">
-        <div class="ornament"></div>
-        <p>tic tac toe</p>
-        <div class="ornament"></div>
-      </div>
-      <div class="players">
-        Multiplayer
-        <p>
-          Play against a friend
-        </p>
+      <button data-js="start">start!</button>
+      <div>
+        <p>Player 2</p>
+        <input type="text" id="player2" name="player2"  placeholder="Add name...">
       </div>
     </div>
     <!-- Write your markup in here! Feel free to delete the title and the text! -->
-    <div class="game">
+    <div class="game" data-js="game">
       <p id="turn">orange's turn</p>
       <div class="playfield">
         <div class="line">

@@ -1,6 +1,9 @@
 // SETTING VARIABLES
 var field = [];
 const restart = document.querySelector('[data-js="restart"]');
+const start = document.querySelector('[data-js="start"]');
+const overlay = document.querySelector('[data-js="overlay"]');
+const game = document.querySelector('[data-js="game"]');
 var vals = [0,0,0,0,0,0,0,0,0];
 var turn = "orange";
 const gameText = document.getElementById("turn")
@@ -11,9 +14,28 @@ for(var x=0;x<9;x++){
     field[x] = document.querySelector('[data-js="'+x+'"]');
 }
 
+
 // FIRST INITIALSIE OF GAME
 initialiseGame();
 restart.addEventListener('click',initialiseGame);
+start.addEventListener('click',nameSave);
+game.classList.toggle("hide");
+
+
+// SAVING THE NAMES INTO VARIABLE AND SWITCHING INTERFACE
+function nameSave(){
+    player1 = document.getElementById("player1").value;
+    player2 = document.getElementById("player2").value;
+    if(player1 == ""){
+        player1 = "orange";
+    }
+    if(player2 == ""){
+        player2 = "blue";
+    }
+    overlay.classList.toggle("hide");
+    game.classList.toggle("hide");
+    gameText.innerHTML = player1+"'s turn";
+};
 
 // ON FIRST INITIALISE AND ON RESTARTING
 function initialiseGame(){
